@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import useTodoState from "./hooks/useTodoState";
 import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
+import { TodoProvider } from "./context/todos.contex";
 
 function TodoApp() {
   const initalTodos = JSON.parse(localStorage.getItem("todos") || "[]");
@@ -14,13 +15,15 @@ function TodoApp() {
   return (
     <div>
       <h1>TodoList</h1>
-      <TodoForm addTodo={addTodo} />
-      <TodoList
-        todos={todos}
-        editTodo={editTodo}
-        removeTodo={removeTodo}
-        toggleTodo={toggleTodo}
-      />
+      <TodoProvider>
+        <TodoForm addTodo={addTodo} />
+        <TodoList
+          todos={todos}
+          editTodo={editTodo}
+          removeTodo={removeTodo}
+          toggleTodo={toggleTodo}
+        />
+      </TodoProvider>
     </div>
   );
 }
