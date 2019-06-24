@@ -4,17 +4,13 @@ import { DispatchContext } from "./context/todos.contex";
 
 export default function TodoForm() {
   const dispatch = useContext(DispatchContext);
-
   const [input, handelInput, reset] = useInputState("");
-  console.log("Todo form render");
-
   return (
     <div>
       <form
         onSubmit={e => {
           e.preventDefault();
           dispatch({ type: "ADD", input: input });
-          // addTodo(input);
           reset();
         }}
       >

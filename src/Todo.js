@@ -6,8 +6,6 @@ import { DispatchContext } from "./context/todos.contex";
 function Todo({ id, task, completed }) {
   const dispatch = useContext(DispatchContext);
   const [editing, setEditing] = useToggleState(false);
-  console.log(task);
-
   return (
     <div>
       {editing ? (
