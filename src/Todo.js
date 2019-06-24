@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import useToggleState from "./hooks/useToggleState";
 import EditTodo from "./EditTodo";
-import { TodoContext } from "./context/todos.contex";
+import { DispatchContext } from "./context/todos.contex";
 
 export default function Todo({ id, task, completed }) {
-  const { dispatch } = useContext(TodoContext);
+  const dispatch = useContext(DispatchContext);
   const [editing, setEditing] = useToggleState(false);
   return (
     <div>

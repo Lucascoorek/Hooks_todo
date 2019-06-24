@@ -3,13 +3,16 @@ import React, { createContext, useReducer } from "react";
 import todoReducer from "../reducers/todo.reducer";
 
 export const TodoContext = createContext();
+export const DispatchContext = createContext();
 // const initalTodos = JSON.parse(localStorage.getItem("todos") || "[]");
 export function TodoProvider(props) {
   //   const todoStuff = useTodoState(initalTodos);
   const [todos, dispatch] = useReducer(todoReducer, []);
   return (
-    <TodoContext.Provider value={{ todos, dispatch }}>
-      {props.children}
+    <TodoContext.Provider value={todos}>
+      <DispatchContext.Provider value={dispatch}>
+        {props.children}
+      </DispatchContext.Provider>
     </TodoContext.Provider>
   );
 }

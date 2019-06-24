@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import useInputState from "./hooks/useInputState";
-import { TodoContext } from "./context/todos.contex";
+import { DispatchContext } from "./context/todos.contex";
 
 export default function EditTodo({ id, task, setEditing }) {
-  const { dispatch } = useContext(TodoContext);
+  const dispatch = useContext(DispatchContext);
   const [input, handeChange, reset] = useInputState(task);
+  console.log("Edit todo render");
+
   return (
     <form
       onSubmit={e => {
