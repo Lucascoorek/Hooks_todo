@@ -5,10 +5,11 @@ import TodoForm from "./TodoForm";
 import { TodoContext } from "./context/todos.contex";
 
 function TodoApp() {
-  // const { todos } = useContext(TodoContext);
+  // const todos = useContext(TodoContext);
   // useEffect(() => {
   //   window.localStorage.setItem("todos", JSON.stringify(todos));
   // }, [todos]);
+
   return (
     <div>
       <h1>TodoList!!!</h1>

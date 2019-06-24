@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, memo } from "react";
 import useToggleState from "./hooks/useToggleState";
 import EditTodo from "./EditTodo";
 import { DispatchContext } from "./context/todos.contex";
 
-export default function Todo({ id, task, completed }) {
+function Todo({ id, task, completed }) {
   const dispatch = useContext(DispatchContext);
   const [editing, setEditing] = useToggleState(false);
+  console.log(task);
+
   return (
     <div>
       {editing ? (
@@ -27,3 +29,4 @@ export default function Todo({ id, task, completed }) {
     </div>
   );
 }
+export default memo(Todo);
